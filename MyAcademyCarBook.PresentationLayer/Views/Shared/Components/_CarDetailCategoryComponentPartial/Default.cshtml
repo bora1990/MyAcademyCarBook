@@ -1,0 +1,18 @@
+﻿
+@model List<Category>
+
+
+
+<div class="sidebar-box">
+    <div class="categories">
+        <h3>Categories</h3>
+
+
+        @foreach(var item in Model)
+        {
+                
+        <li><a href="#">@item.CategoryName<span>(0)</span></a></li>
+    
+        }
+    </div>
+</div>
