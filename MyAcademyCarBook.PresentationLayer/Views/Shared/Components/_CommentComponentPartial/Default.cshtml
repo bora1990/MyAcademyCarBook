@@ -1,0 +1,22 @@
+﻿
+@model List<Comment>
+
+
+    @foreach(var item in Model){
+
+    
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                      <div class="testimonial-2">
+                      <blockquote class="mb-4">
+                <a href="/car/cardetail/@item.CarID/" style="color:black"> <p style="font-size:11px!important">@item.Description</p> </a>
+                         </blockquote>
+                <div class="d-flex v-card justify-content-between">
+
+                      <img src="@item.ImageUrl" alt="Image" class="img-fluid mr-4"> 
+                       <p>@item.NameSurname</p>
+
+                      <p>@item.CreatedDate.ToShortDateString()</p>
+                 </div>
+                   </div>
+                </div>
+    }

@@ -8,20 +8,23 @@
     <div class="container">
         <div class="row">
 
-            @foreach(var item in Model)
-            {         
-            <div class="col-lg-4 mb-4 mb-lg-5">
-                <div class="service-1 dark">
-                    <span class="service-1-icon">
-                        <span class="flaticon-car"></span>
-                    </span>
-                    <div class="service-1-contents">
-                        <h3>@item.Title</h3>
-                        <p>@item.Description</p>
-                    </div>
-                </div>
-            </div>
-            }
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 mb-4 mb-lg-5">
+                    <div class="service-1 dark">
+                        <span class="service-1-icon">
+                            <span class="@item.Icon"></span>
+                        </span>
+                        <div class="service-1-contents">
+                            <h3>@item.Title</h3>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>  
+                </div>  //hocam işteyim de bir yandan nasıl yaptınız // css yolları bozukmuş heead kısmındaki onu düzelttim 
+                //cok teşekürler şimdi hero soru geliyor :d
+            }       
         </div>
     </div>
 </div>

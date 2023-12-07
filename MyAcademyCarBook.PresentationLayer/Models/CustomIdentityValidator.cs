@@ -51,8 +51,5 @@ namespace MyAcademyCarBook.PresentationLayer.Models
             };
 
         }
-
-
-
     }
 }

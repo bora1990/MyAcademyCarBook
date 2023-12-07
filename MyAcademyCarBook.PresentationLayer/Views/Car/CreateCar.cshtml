@@ -1,0 +1,48 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "AddBrand";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<h3>Yeni Marka Girişi</h3>
+<form asp-action="CreateCar" asp-controller="Car" method="post">
+    <br />
+    <label>Model</label>
+    <input type="text" asp-for="Model" class="form-control" style="border:1px solid #222" />
+
+    <br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.c , new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br />
+    <label>Marka</label>
+    @Html.DropDownListFor(x => x.BrandID, (List<SelectListItem>)ViewBag.b , new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br />
+    <label>Vites</label>
+   <input type="text" asp-for="GearType" class="form-control" style="border:1px solid #222" />
+    <br />
+    <label>Km</label>
+    <input type="text" asp-for="Km" class="form-control" style="border:1px solid #222" />
+    <br />
+    <label>Koltuk Sayısı</label>
+    <input type="text" asp-for="PersonCount" class="form-control" , style=" border: 2px solid grey; " />
+    <br />
+    <label>İmal Edildiği Yıl</label>
+    <input type="text" asp-for="Year" class="form-control" style="border:1px solid #222" />
+
+    <br />
+    <label>Aktif /Pasif</label>
+    <input type="checkbox" asp-for="Status" />
+    <br />
+
+    <select asp-for="CarStatus">
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+
+    </select>
+
+    <br />
+    <button class="btn btn-primary"> Kaydet</button>
+
+</form>
+

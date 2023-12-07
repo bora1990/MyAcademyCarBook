@@ -1,0 +1,32 @@
+﻿@model Service
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<h1>Hizmet Güncelle </h1>
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.ServiceID)
+
+    <label>Ikon</label>
+    <input type="text" asp-for="Icon" class="form-control" style="border:1px solid #2222" />
+    <span asp-validation-for="Icon" class="text-danger"></span>
+    <br />
+
+    <label>Title</label>
+    <input type="text" asp-for="Title" class="form-control" style="border:1px solid #2222" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <br />
+    <label>Description</label>
+    <input type="text" asp-for="Description" class="form-control" style="border:1px solid #2222" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+
+    <br />
+    <button class="btn btn-primary">Hizmet Güncelle</button>
+
+
+</form>

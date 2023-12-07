@@ -1,0 +1,67 @@
+﻿@model List<Price>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+    var filterCars = ViewBag.filterCar as List<Car>;
+
+}
+
+<div class="site-section bg-light">
+    <div class="container">
+
+        <div class="row">
+
+
+            @if (filterCars == null)
+            {
+                <h2>Uygun Araçlarımız Burada Listelenir.</h2>
+            }
+            else if (filterCars.Count == 0)
+            {
+                <h3>Araç bulunamadı...</h3>
+            }
+            else
+            {
+
+                foreach (var item in filterCars)
+                {
+                    <div class="col-3">
+
+                        <div class="card">
+                            <a href="/car/CarDetail/@item.CarID"><img src="@item.ImageUrl" alt="Image" class="card-img-top"></a>
+                            <div class="card-body">
+                                <h2 class="card-title"><a href="/car/CarDetail/@item.CarID">@item.Brand.BrandName @item.Model</a></h2>
+                           
+                            </div>
+                            <ul class="list-group list-group-flush">
+
+                                <li class="list-group-item">
+                                    <h3>
+                                        @foreach (var price in Model)
+                                        {
+                                            <div class="rent-price"><span>@price.PriceValue /</span> @price.PriceType </div>
+                                        }
+                                    </h3>
+                                </li>
+                                <li class="list-group-item">
+                                    <span>Vites :</span>
+                                    <span class="spec">@item.GearType</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span>Yıl :</span>
+                                    <span class="spec">@item.Year</span>
+                                </li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="/Sepet/Index/@item.CarID" class="btn btn-outline-primary">Ödeme Yap</a>
+                                <a href="/car/cardetail/@item.CarID/" class="btn btn-outline-warning ms-5">Yorum Yap</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+

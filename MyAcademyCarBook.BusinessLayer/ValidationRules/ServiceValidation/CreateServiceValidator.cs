@@ -19,7 +19,7 @@ namespace MyAcademyCarBook.BusinessLayer.ValidationRules.ServiceValidation
             RuleFor(x => x.Description).MinimumLength(10).WithMessage("Lütfen en az 10 karekter girişi yapınız");
             RuleFor(x => x.Description).MaximumLength(300).WithMessage("Lütfen en fazla 300 karakter giriniz ");
             RuleFor(x => x.Icon).NotEmpty().WithMessage("Ikon alanı boş geçilemez");
-        }  //contructor varsa program.cs
+        }  //constructor varsa program.cs
 
     }
 }

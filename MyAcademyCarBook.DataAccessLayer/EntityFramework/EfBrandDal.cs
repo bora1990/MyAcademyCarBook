@@ -11,7 +11,5 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
 {
     public class EfBrandDal:GenericRepository<Brand>,IBrandDal
     {
-
-
     }
 }

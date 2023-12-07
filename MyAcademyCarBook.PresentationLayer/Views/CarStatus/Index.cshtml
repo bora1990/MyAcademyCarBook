@@ -12,7 +12,7 @@
         <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
-        <th>Araba Detayları</th>
+       
     </tr>
 
     @foreach (var item in Model)
@@ -21,8 +21,8 @@
             <td>@item.CarStatusID</td>
             <td>@item.CarStatusName</td>
             <td><a href="/CarStatus/RemoveCarStatus/@item.CarStatusID/" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="/CarStatus/UpdateCarStatus/@item.CarStatusID/" class="btn btn-outline-warning">Güncelle</a></td>
-            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+            <td><a href="/CarStatus/UpdateCarStatus/@item.CarStatusID/" class="btn btn-outline-success">Güncelle</a></td>
+            
         </tr>
     }
 </table>

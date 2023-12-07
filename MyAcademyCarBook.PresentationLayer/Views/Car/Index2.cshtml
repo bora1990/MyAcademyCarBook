@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    var i = 0;
 }
 
 <h1>Araba Listesi</h1>
@@ -23,24 +24,25 @@
         <th>Sitede Gör</th>
 
     </tr>
-
+    
     @foreach (var item in Model)
     {
+        i++;
 
         <tr>
 
-            <td>@item.CarID</td>
+            <td>@i</td>
             <td>@item.Model</td>
-            <td>@item.CategoryID</td>
+            <td>@item.Category.CategoryName</td>
             <td>@item.Brand.BrandName</td>
             <td>@item.GearType</td>
             <td>@item.Year</td>
             <td>@item.CarStatus.CarStatusName</td>
             <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="#" class="btn btn-outline-warning">Guncelle</a></td>
-            <td><a href="#" class="btn btn-outline-dark">Detaylar</a>
+            <td><a href="/Car/CarDetail/@item.CarID" class="btn btn-outline-dark">Detaylar</a>
             <td>
-            <td><a href="#" class="btn btn-outline-primary">Sitede Gör</a></td>
+            <td><a href="/Car/CarDetail/@item.CarID" class="btn btn-outline-primary">Sitede Gör</a></td>
 
         </tr>
 
@@ -49,4 +51,4 @@
 
 </table>
 
-<a href="" class="btn btn-outline-primary">Yeni Araç Girişi</a>
+<a href="/car/createCar/" class="btn btn-outline-primary">Yeni Araç Girişi</a>

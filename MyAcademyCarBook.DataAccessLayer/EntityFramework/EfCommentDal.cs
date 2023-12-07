@@ -14,10 +14,12 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
     {
         public List<Comment> GetCommentsByCar(int id)
         {
-            var context = new CarBookContext();
+            var context = new CarBookContext(); //
             var values=context.Comments.Where(x=>x.CarID==id).ToList(); 
 
             return values;
         }
+
+
     }
 }

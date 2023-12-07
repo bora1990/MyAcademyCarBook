@@ -1,15 +1,21 @@
-﻿@model List<Car>
+﻿
 
 @{
     ViewData["Title"] = "CarList";
     Layout = "~/Views/UILayout/Index.cshtml";
+
+    var allcar = ViewBag.allcars as List<Car>;
+    var allPrices = ViewBag.allPrices as List<Price>;//coktesekur ederım Annemızın Allah şifasını versinsağolasın kendine iyi bak görüşürüz çok sağol abi 
 }
 
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
 
-            @foreach(var item in Model)
+
+
+
+            @foreach (var item in allcar)
             {
 
             <div class="col-lg-4 col-md-6 mb-4">
@@ -25,7 +31,18 @@
                                 <span class="icon-star text-warning"></span>
                                 <span class="icon-star text-warning"></span>
                             </div>
-                            <div class="rent-price"><span>$1200/</span>Günlük</div>
+
+                                @if (allPrices.Find(p => p.CarID == item.CarID) == null)
+                                {
+                                    <div class="rent-price"><span style="color:red;font-size:10px">--fiyat bulunamadı--</span></div>
+                                }
+                                else
+                                {
+                                    <div class="rent-price"><span> @allPrices.Find(p => p.CarID == item.CarID).PriceValue/</span> @allPrices.Where(p => p.CarID == item.CarID).FirstOrDefault()?.PriceType</div>
+                                }
+
+                                
+
                         </div>
                         <ul class="specs">
                             <li>
@@ -45,23 +62,19 @@
                                 <span class="spec">@item.Km</span>
                             </li>
                         </ul>
-                        <div class="d-flex action">
-                            <a href="contact.html" class="btn btn-primary">Hemen Kirala</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="/Sepet/Index/@item.CarID" class="btn btn-primary">Hemen Kirala</a>
                             <a href="/Car/CarDetail/@item.CarID/" class="btn btn-warning">Araç Detayları</a>
                         </div>
                     </div>
                 </div>
             </div>
-                
+                 
             }
 
    
             <div class="col-12">
-                <span class="p-3">1</span>
-                <a href="#" class="p-3">2</a>
-                <a href="#" class="p-3">3</a>
-                <a href="#" class="p-3">4</a>
-            </div>
+      
         </div>
     </div>
 </div>

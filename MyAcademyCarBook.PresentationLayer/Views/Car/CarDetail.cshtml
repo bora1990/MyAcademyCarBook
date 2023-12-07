@@ -4,11 +4,13 @@
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
-<h1>CarDetail</h1>
+
 
 
 <div class="site-section">
     <div class="container">
+
+        <h2 class="font-italic">@ViewBag.b <span>@ViewBag.m</span></h2>
         <div class="row">
             <div class="col-md-8 blog-content">
                 <p class="lead">@ViewBag.v</p>
@@ -18,7 +20,7 @@
 
                     @await Component.InvokeAsync("_CarDetailCommentComponentPartial",new {id=ViewBag.i})
                     <!-- END comment-list -->
-                    @await Component.InvokeAsync("_CarDetailLeaveACommentComponentPartial")
+                    @await Component.InvokeAsync("_CarDetailLeaveACommentComponentPartial",new {id=ViewBag.i})
                 </div>
 
             </div>

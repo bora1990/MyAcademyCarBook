@@ -9,15 +9,20 @@
 
 <form method="post">
     <label>Araba</label>
-    @Html.DropDownListFor(x=>x.CarID,(List<SelectListItem>)ViewBag.v,new {@class="form-control",@style="border:1px solid #2222"})
+    @Html.DropDownListFor(x=>x.CarID,(List<SelectListItem>)ViewBag.v1,new {@class="form-control",@style="border:1px solid #2222"})
         <br />
         <label>Ödeme Planı Giriniz</label>
-    <input type="text" asp-for="PriceType" class="form-control" style="border:1px solid #222"  />
+    <select class="form-select" style="width:100px;" asp-for="PriceType">
+        <option value="Haftalık">Haftalık</option>
+        <option value="Günlük">Günlük</option>
+        <option value="Aylık">Aylık</option>
+    </select>
     <label>Fiyat Giriniz</label>
     <input type="text" asp-for="PriceValue" class="form-control" style="border:1px solid #222" />
 
+    <br />
+   
 
-
-   <button>GÖNDER</button>
+    <button type="submit" class="btn btn-outline-success">GÖNDER</button>
 </form>
 

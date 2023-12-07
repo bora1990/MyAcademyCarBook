@@ -21,10 +21,9 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
         public IActionResult CreateCarStatus()  
         { 
-
-
         return View();
         }
+
         [HttpPost]
 
         public IActionResult CreateCarStatus(CarStatus carStatus)
@@ -56,10 +55,5 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-
     }
 }

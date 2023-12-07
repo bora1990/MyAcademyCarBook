@@ -20,7 +20,7 @@ namespace MyAcademyCarBook.EntityLayer.Concrete
 
         public Brand Brand { get; set; }  //Bu arabanın markası
 
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         public string GearType { get; set; }
 
@@ -42,5 +42,7 @@ namespace MyAcademyCarBook.EntityLayer.Concrete
 
         public List<Comment> Comments { get; set; }
 
+    
     }
+  
 }

@@ -19,5 +19,7 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
             var values=context.Prices.Include(x=>x.Car).ThenInclude(y=>y.Brand).ToList(); //price-car car--brand ilişkili
             return values;
         }
+
+
     }
 }

@@ -38,6 +38,11 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             return _carDetailDal.GetCarDetailWithAuthor(id);
         }
 
+        public CarDetail TGetCarDetailWithBrand(int id)
+        {
+            return _carDetailDal.GetCarDetailWithBrand(id);
+        }
+
         public List<CarDetail> TGetListAll()
         {
             return _carDetailDal.GetListAll();

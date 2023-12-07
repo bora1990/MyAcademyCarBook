@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    var i = 0;
 }
 
 <h1>Araç Ödeme Planları</h1>
@@ -19,8 +20,9 @@
 
     @foreach(var item in Model)
     {
+        i++;
         <tr>
-            <td>@item.PriceID</td>
+            <td>@i</td>
             <td>@item.Car.Brand.BrandName @item.Car.Model</td>
             <td>@item.PriceType</td>
             <td>@item.PriceValue</td>
@@ -29,5 +31,7 @@
         </tr>
     }
 </table>
+
+
 <a href="/Price/CreatePrice/" class="btn btn-outline-primary">Yeni Araç Ödeme Girişi</a>
 

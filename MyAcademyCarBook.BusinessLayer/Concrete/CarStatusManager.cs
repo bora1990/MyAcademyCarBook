@@ -25,7 +25,7 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 
         public CarStatus TGetByID(int id)
         {
-           return _carStatusDal.GetByID(id);
+            return _carStatusDal.GetByID(id);
         }
 
         public List<CarStatus> TGetListAll()
@@ -40,7 +40,7 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
 
         public void TUpdate(CarStatus entity)
         {
-            _carStatusDal.Update(entity);   
+            _carStatusDal.Update(entity);
         }
     }
 }

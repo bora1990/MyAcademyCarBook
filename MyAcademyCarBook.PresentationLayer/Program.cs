@@ -41,6 +41,8 @@ builder.Services.AddScoped<IHowItWorksStepService, HowItWorksStepManager>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddFluentValidation();
 
@@ -65,6 +67,7 @@ app.UseAuthorization();  //yetkilendirme
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
 
 app.Run();

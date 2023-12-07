@@ -21,16 +21,20 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             var values = _priceService.TGetPricesWithCars();
             return View(values);
         }
+        [HttpGet]
         public IActionResult CreatePrice()
         {
-            List<SelectListItem> values = (from x in _carService.TGetAllCarsWithStatusandBrands()
+            List<SelectListItem> values = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
                                            select new SelectListItem
                                            {
                                                Text = x.Brand.BrandName + " " + x.Model,
                                                Value = x.CarID.ToString()
                                            }).ToList();
 
-            ViewBag.v = values;
+            ViewBag.v1 = values;
+
+        
+
             return View();
         }
 
@@ -50,7 +54,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
         public IActionResult UpdatePrice(int id)
         {
-            List<SelectListItem> values = (from x in _carService.TGetAllCarsWithStatusandBrands()
+            List<SelectListItem> values = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
                                            select new SelectListItem
                                            {
                                                Text = x.Brand.BrandName + " " + x.Model,

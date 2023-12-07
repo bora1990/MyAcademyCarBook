@@ -9,6 +9,8 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
     public interface ICarService:IGenericService<Car>
     {
-        List<Car> TGetAllCarsWithStatusandBrands();
+        List<Car> TGetAllCarsWithStatusandBrandsandCategory();
+
+        Car TGetByIdWithBrand(int id);
     }
 }

@@ -18,9 +18,9 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> TGetAllCarsWithStatusandBrands()
+        public List<Car> TGetAllCarsWithStatusandBrandsandCategory()
         {
-            return _carDal.GetAllCarsWithStatusandBrands();
+            return _carDal.GetAllCarsWithStatusandBrandsandCategory();
         }
 
         public void TDelete(Car entity)
@@ -55,6 +55,15 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
         public void TUpdate(Car entity)
         {
             _carDal.Update(entity);
+        }
+
+        public Car TGetByIdWithBrand(int id)
+        {
+            if (id != null)
+            {
+                return _carDal.GetByIdWithBrand(id);
+            }
+            return _carDal.GetByIdWithBrand(0);
         }
     }
 }

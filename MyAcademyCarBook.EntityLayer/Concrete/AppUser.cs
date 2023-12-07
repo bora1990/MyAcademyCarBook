@@ -17,6 +17,8 @@ namespace MyAcademyCarBook.EntityLayer.Concrete
 
         public string? ImageUrl { get; set; }
 
+        public string? Description { get; set; }
+
         public List<CarDetail> CarDetails { get; set; }  //bir kullanıcı birden fazla cardetail yazabilir.
     }
 }

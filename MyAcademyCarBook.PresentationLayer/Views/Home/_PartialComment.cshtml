@@ -1,0 +1,22 @@
+﻿
+@model List<Comment>
+
+
+    @foreach(var item in Model){
+
+    
+     <div class="col-lg-4 col-md-6 mb-4">
+            <div class="post-entry-1 h-100">
+              <a href="single.html">
+                <img src="@item.ImageUrl" alt="Image"
+                 class="img-fluid">
+              </a>
+              <div class="post-entry-1-contents">
+                
+                <h2><a href="single.html">The best car rent in the entire planet</a></h2>
+                <span class="meta d-inline-block mb-3">@item.CreatedDate.ToString()<span class="mx-2">by</span> <a href="#">@item.NameSurname</a></span>
+                <p>@item.Description</p>
+              </div>
+            </div>
+          </div>
+    }

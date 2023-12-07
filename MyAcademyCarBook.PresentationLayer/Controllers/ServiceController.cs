@@ -15,7 +15,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             _serviceService = serviceService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index()  //UI
 		{
 			var values = _serviceService.TGetListAll();
 			return View(values);
@@ -24,13 +24,24 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 		public IActionResult ServiceList()
 		{
 			var values = _serviceService.TGetListAll();
-			return View();
+			return View(values);
 		}
 
         public IActionResult CreateService()
         {
             return View();
         }
+
+        public IActionResult DeleteService(int id)
+        {
+            var entity= _serviceService.TGetByID(id);
+            _serviceService.TDelete(entity);
+
+            return RedirectToAction("ServiceList");
+        }
+
+
+
         [HttpPost]
         public IActionResult CreateService(Service service)
         {
@@ -40,17 +51,32 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             if (result.IsValid)
             {
                 _serviceService.TInsert(service);
-                return RedirectToAction("Index");
+                return RedirectToAction("ServiceList");
             }
             else
             {
                 foreach (var item in result.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-
                 }
             }
             return View();
         }
+
+        public IActionResult UpdateService(int id)
+        {
+            var value = _serviceService.TGetByID(id);
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult UpdateService(Service service)
+        {
+            _serviceService.TUpdate(service);
+            
+            return RedirectToAction("ServiceList");
+        }
+
+
+
     }
 }
