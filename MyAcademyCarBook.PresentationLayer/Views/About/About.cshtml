@@ -1,0 +1,27 @@
+﻿@model List<About>
+
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+@foreach(var item in Model)
+{
+    
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col text-center">
+
+            <h2>@item.Title</h2>
+            <br />
+            <p>@item.AboutDescription</p>
+
+
+
+        </div>
+    </div>
+</div>
+}

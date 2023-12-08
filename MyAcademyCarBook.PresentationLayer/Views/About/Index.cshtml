@@ -1,0 +1,29 @@
+﻿@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.AboutDescription</td>
+            <td><a href="/About/UpdateAbout/@item.AboutID/">Güncelle</a></td>
+        </tr>
+    }
+
+
+</table>

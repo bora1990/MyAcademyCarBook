@@ -36,5 +36,7 @@ namespace MyAcademyCarBook.DataAccessLayer.Concrete
 
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<About> Abouts { get; set; }
+
     }
 }

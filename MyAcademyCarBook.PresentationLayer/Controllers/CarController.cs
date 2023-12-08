@@ -70,12 +70,6 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
                                                Text = x.Brand.BrandName,
                                                Value = x.BrandID.ToString()
                                            }).DistinctBy(x => x.Text).ToList();
-            //List<SelectListItem> carstatuses = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
-            //                                    select new SelectListItem
-            //                                    {
-            //                                        Text = x.CarStatus.CarStatusName,
-            //                                        Value = x.CarStatusId.ToString()
-            //                                    }).ToList();
 
             List<SelectListItem> category = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
                                              select new SelectListItem
@@ -84,8 +78,20 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
                                                  Value = x.CategoryID.ToString()
                                              }).DistinctBy(x => x.Text).ToList();
 
+           
 
 
+            List<SelectListItem> status = (from x in _carStatusService.TGetListAll()
+                                            select new SelectListItem
+                                            {
+                                                Text = x.CarStatusName,
+                                                Value = x.CarStatusID.ToString()
+                                            }
+
+
+                                            ).ToList();
+
+            ViewBag.s = status;
 
             ViewBag.b = brands;
         
@@ -103,15 +109,59 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             return RedirectToAction("Index2");
         }
 
-        public IActionResult UpdateCar()
+        public IActionResult DeleteCar(int id)
         {
-            return View();
+            var value = _carService.TGetByID(id);
+            _carService.TDelete(value);
+            return RedirectToAction("Index2");
         }
 
-        //public IActionResult UpdateCar()
-        //{
-        //    return View();
-        //}
+        public IActionResult UpdateCar(int id)
+        {
+            List<SelectListItem> brands = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Brand.BrandName,
+                                               Value = x.BrandID.ToString()
+                                           }).DistinctBy(x => x.Text).ToList();
+
+            List<SelectListItem> category = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.Category.CategoryName,
+                                                 Value = x.CategoryID.ToString()
+                                             }).DistinctBy(x => x.Text).ToList();
+
+
+
+
+            List<SelectListItem> status = (from x in _carStatusService.TGetListAll()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CarStatusName,
+                                               Value = x.CarStatusID.ToString()
+                                           }
+
+
+                                            ).ToList();
+
+            ViewBag.s = status;
+
+            ViewBag.b = brands;
+
+            ViewBag.c = category;
+
+            var value=_carService.TGetByID(id);
+
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCar(Car car)
+        {
+            _carService.TUpdate(car);
+            return RedirectToAction("Index2");
+        }
 
 
 

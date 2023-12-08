@@ -18,7 +18,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         public IActionResult Index()  //UI
 		{
             ViewBag.title1 = "Hizmetlerimiz";
-            ViewBag.title2 = "Sizin için yapabilirceklerimiz ";
+            ViewBag.title2 = "Sizin için yapabileceklerimiz ";
             var values = _serviceService.TGetListAll();
 			return View(values);
 		}

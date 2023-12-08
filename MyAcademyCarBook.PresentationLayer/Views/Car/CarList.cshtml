@@ -8,7 +8,18 @@
     var allcar = ViewBag.allcars as IPagedList<Car>;
     var allPrices = ViewBag.allPrices as List<Price>;
 }
-
+<style>
+   
+       
+    
+    .pagination li { <-- burası pagination sınıfı içeren elemntin altındaki lileri etkile demek 
+        margin-left:5px;
+       
+        width: 15px;
+        border-radius:3px;
+        text-align:center;
+    }
+</style>
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
@@ -72,12 +83,12 @@
             </div>
                  
             }
-            <div style ="padding:20px">
-           <p style="background-color:blue" >
+            <div style="padding:20px;">
+                <p style="background-color:blue;margin-left: 5px;">
                 @Html.PagedListPager((IPagedList)allcar, page => Url.Action("CarList", new { page }))
                 </p>
                 </div>
-   
+              
             <div class="col-12">
       
         </div>

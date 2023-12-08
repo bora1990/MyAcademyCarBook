@@ -38,6 +38,10 @@ builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IHowItWorksStepDal, EfHowItWorksStepDal>();
 builder.Services.AddScoped<IHowItWorksStepService, HowItWorksStepManager>();
 
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+builder.Services.AddScoped<IAboutService,AboutManager>();   
+
+
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 

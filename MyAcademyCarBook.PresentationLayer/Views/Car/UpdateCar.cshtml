@@ -1,0 +1,52 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "UpdateCar";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>UpdateCar</h1>
+
+<form asp-action="UpdateCar" asp-controller="Car" method="post">
+
+
+    <input type="hidden" asp-for="@Model.CarID" />
+
+    <br />
+    <label>Model</label>
+    <input type="text" asp-for="Model" class="form-control" style="border:1px solid #222" />
+
+    <br />
+    <label>Kategori</label>
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.c, new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br />
+    <label>Marka</label>
+    @Html.DropDownListFor(x => x.BrandID, (List<SelectListItem>)ViewBag.b, new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br />
+    <label>Vites</label>
+
+    <input type="text" asp-for="GearType" class="form-control" style="border:1px solid #222" />
+    @*   @Html.DropDownListFor(x => x.CarID, (List<SelectListItem>)ViewBag.g, new { @class = "form-control", style = " border: 2px solid grey; " }) *@
+    <br />
+    <label>Km</label>
+    <input type="text" asp-for="Km" class="form-control" style="border:1px solid #222" />
+    <br />
+    <label>Koltuk Sayısı</label>
+    <input type="text" asp-for="PersonCount" class="form-control" , style=" border: 2px solid grey; " />
+    <br />
+    <label>İmal Edildiği Yıl</label>
+    <input type="text" asp-for="Year" class="form-control" style="border:1px solid #222" />
+
+    <br />
+    <label>Araç Fotograf Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" style="border:1px solid #222" />
+    <br />
+    <label>Araç Durumu</label>
+    @Html.DropDownListFor(x => x.CarStatusId, (List<SelectListItem>)ViewBag.s, new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br />
+    <label>Aktif /Pasif</label>
+    <input type="checkbox" asp-for="Status" />
+    <br />
+    <button type="submit" class="btn btn-primary mt-2"> Kaydet</button>
+    <br />
+
+</form>

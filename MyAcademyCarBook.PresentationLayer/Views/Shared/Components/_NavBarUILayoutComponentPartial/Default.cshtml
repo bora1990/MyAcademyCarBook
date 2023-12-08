@@ -34,7 +34,7 @@
                         
                         <li ><a href="/Service/Index/" class="nav-link">Hizmetler</a></li>
                         <li><a href="/Car/CarList/" class="nav-link">Araçlarımız</a></li>
-                        <li><a href="/home/About/" class="nav-link">Hakkımızda</a></li>              
+                        <li><a href="/about/About/" class="nav-link">Hakkımızda</a></li>              
                         <li><a href="/contact/index/" class="nav-link">İletişim</a></li>
 
                    
@@ -42,14 +42,13 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sayın <span>   </span> <b>@User.Identity.Name</b>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#">Çıkış Yap</a></li>
+                                  
                                 
                                 </ul>
                             </li>

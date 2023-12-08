@@ -54,14 +54,30 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
         public IActionResult UpdatePrice(int id)
         {
-            List<SelectListItem> values = (from x in _carService.TGetAllCarsWithStatusandBrandsandCategory()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.Brand.BrandName + " " + x.Model,
-                                               Value = x.CarID.ToString()
-                                           }).ToList();
+            var carb = _priceService.TGetPricesWithCars().Where(x => x.PriceID == id).Select(y=>y.Car.Brand.BrandName).FirstOrDefault();
 
-            ViewBag.v = values;
+            var ids = _priceService.TGetByID(id).PriceID;
+
+            var carm=_priceService.TGetPricesWithCars().Where(x=>x.PriceID==ids).Select(y=>y.Car.Model).FirstOrDefault();
+
+            var carid = _priceService.TGetByID(id).CarID;
+
+            ViewBag.v1 = carid;
+
+
+
+
+            List<SelectListItem> values2 = (from x in _priceService.TGetListAll()
+                                            select new SelectListItem
+                                            {
+                                                Text=x.PriceType,
+                                                Value=x.PriceID.ToString()  
+                                            }                                                                  
+                                            ).DistinctBy(x=>x.Text).ToList();
+
+            ViewBag.price = values2;
+            ViewBag.b = carb;
+            ViewBag.m= carm;
             var value = _priceService.TGetByID(id);
 
             return View(value);

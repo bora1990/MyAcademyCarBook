@@ -17,7 +17,9 @@
     @Html.DropDownListFor(x => x.BrandID, (List<SelectListItem>)ViewBag.b , new { @class = "form-control", style = " border: 2px solid grey; " })
     <br />
     <label>Vites</label>
-   <input type="text" asp-for="GearType" class="form-control" style="border:1px solid #222" />
+
+    <input type="text" asp-for="GearType" class="form-control" style="border:1px solid #222" />
+  @*   @Html.DropDownListFor(x => x.CarID, (List<SelectListItem>)ViewBag.g, new { @class = "form-control", style = " border: 2px solid grey; " }) *@
     <br />
     <label>Km</label>
     <input type="text" asp-for="Km" class="form-control" style="border:1px solid #222" />
@@ -29,20 +31,15 @@
     <input type="text" asp-for="Year" class="form-control" style="border:1px solid #222" />
 
     <br />
+    <input type="text" asp-for="ImageUrl" class="form-control" style="border:1px solid #222" />
+  
+    @Html.DropDownListFor(x => x.CarStatusId, (List<SelectListItem>)ViewBag.s, new { @class = "form-control", style = " border: 2px solid grey; " })
+    <br /> 
     <label>Aktif /Pasif</label>
     <input type="checkbox" asp-for="Status" />
     <br />
-
-    <select asp-for="CarStatus">
-        <option></option>
-        <option></option>
-        <option></option>
-        <option></option>
-
-    </select>
-
+    <button type="submit" class="btn btn-primary mt-2" > Kaydet</button>
     <br />
-    <button class="btn btn-primary"> Kaydet</button>
-
+ 
 </form>
 

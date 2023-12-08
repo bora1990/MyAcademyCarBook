@@ -4,17 +4,23 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>UpdatePrice</h1>
+<h1>Fiyat Güncelleme Ekranı</h1>
 <form method="post">
     <input type="hidden" asp-for="PriceID" />
-    <label>Araba</label>
-    @Html.DropDownListFor(x=>x.CarID,(List<SelectListItem>)ViewBag.v,new {@class="form-control",@style="border:1px solid #2222"})
+
+    <input type="hidden" asp-for="CarID" />
+    <label class="mb-2">Araba</label>  
+    <h3 class="mb-2">@ViewBag.b  @ViewBag.m</h3>
     <br />
+    
     <label>Ödeme Planı Giriniz</label>
-    <input type="text" asp-for="PriceType" class="form-control" style="border:1px solid #222" />
+    @Html.DropDownListFor(x => x.PriceID, (List<SelectListItem>)ViewBag.price, new { @class = "form-control", @style = "border:1px solid #2222" })
+    <br />
     <label>Fiyat Giriniz</label>
     <input type="text" asp-for="PriceValue" class="form-control" style="border:1px solid #222" />
-
+    <br />
+    <br />
+ 
 
 
     <button class="btn btn-outline-success">Ödeme Planını Güncelle</button>
