@@ -1,11 +1,12 @@
 ﻿
-
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
 @{
     ViewData["Title"] = "CarList";
     Layout = "~/Views/UILayout/Index.cshtml";
 
-    var allcar = ViewBag.allcars as List<Car>;
-    var allPrices = ViewBag.allPrices as List<Price>;//coktesekur ederım Annemızın Allah şifasını versinsağolasın kendine iyi bak görüşürüz çok sağol abi 
+    var allcar = ViewBag.allcars as IPagedList<Car>;
+    var allPrices = ViewBag.allPrices as List<Price>;
 }
 
 <div class="site-section bg-light">
@@ -71,7 +72,11 @@
             </div>
                  
             }
-
+            <div style ="padding:20px">
+           <p style="background-color:blue" >
+                @Html.PagedListPager((IPagedList)allcar, page => Url.Action("CarList", new { page }))
+                </p>
+                </div>
    
             <div class="col-12">
       

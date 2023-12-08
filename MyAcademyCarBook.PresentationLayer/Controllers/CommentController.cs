@@ -26,7 +26,8 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             {
                 NameSurname = comment.NameSurname,
                 Description = comment.Description,
-                CarID = comment.CarID
+                CarID = comment.CarID,
+                CreatedDate=DateTime.Now,
 
             };
 

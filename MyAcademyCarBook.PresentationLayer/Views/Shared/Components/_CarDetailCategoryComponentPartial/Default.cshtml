@@ -1,5 +1,5 @@
 ﻿
-@model List<Category>
+@model List<CategoryViewModel>
 
 
 
@@ -11,7 +11,7 @@
         @foreach(var item in Model)
         {
                 
-        <li><a href="#">@item.CategoryName<span>(0)</span></a></li>
+        <li><a href="#">@item.CategoryName<span>(@item.CategoryCount)</span></a></li>
     
         }
     </div>

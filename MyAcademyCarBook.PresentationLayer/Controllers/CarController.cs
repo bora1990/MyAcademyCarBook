@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.EntityLayer.Concrete;
 using NuGet.Packaging.Signing;
+using X.PagedList;
 
 
 namespace MyAcademyCarBook.PresentationLayer.Controllers
@@ -45,18 +46,17 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             return View(values);
         }
 
-        public IActionResult CarList()
+        public IActionResult CarList(int page=1)
         {
             ViewBag.title1 = "Araç Listesi";
             ViewBag.title2 = "Sizin için Araç Listemiz";
 
-            ViewBag.allcars =_carService.TGetAllCarsWithStatusandBrandsandCategory().ToList();
+            ViewBag.allcars =_carService.TGetAllCarsWithStatusandBrandsandCategory().ToPagedList(page,3);
 
             var value = _priceService.TGetListAll();
 
             ViewBag.allPrices = value;
 
-            // buraya tüm carları mı getiriyordun? evet ama sonra onu viewbagle taşıdım
             return View();
         }
 
