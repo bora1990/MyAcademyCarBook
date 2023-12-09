@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.EntityLayer.Concrete;
 
@@ -12,7 +13,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         {
             _carStatusService = carStatusService;
         }
-
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             var values=_carStatusService.TGetListAll();

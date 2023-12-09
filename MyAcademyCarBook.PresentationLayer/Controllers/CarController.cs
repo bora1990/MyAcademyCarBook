@@ -40,10 +40,20 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             return View(values);
         }
 
-        public IActionResult Index2()
+        public IActionResult Index2(string p)
         {
-            var values = _carService.TGetAllCarsWithStatusandBrandsandCategory();
-            return View(values);
+
+            ViewData["CurrentFilter"] = p;
+
+            var values = from x in _carService.TGetAllCarsWithStatusandBrandsandCategory() select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+
+                values = values.Where(y=>y.Model.Contains(p));
+            }
+            return View(values.ToList());
+
+     
         }
 
         public IActionResult CarList(int page=1)

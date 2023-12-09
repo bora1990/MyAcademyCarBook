@@ -67,15 +67,8 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
 
 
-            List<SelectListItem> values2 = (from x in _priceService.TGetListAll()
-                                            select new SelectListItem
-                                            {
-                                                Text=x.PriceType,
-                                                Value=x.PriceID.ToString()  
-                                            }                                                                  
-                                            ).DistinctBy(x=>x.Text).ToList();
 
-            ViewBag.price = values2;
+           
             ViewBag.b = carb;
             ViewBag.m= carm;
             var value = _priceService.TGetByID(id);

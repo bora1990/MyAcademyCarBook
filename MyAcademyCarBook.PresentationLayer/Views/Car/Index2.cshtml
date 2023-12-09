@@ -8,6 +8,19 @@
 <h1>Araba Listesi</h1>
 
 
+<form asp-action="Index2" method="get" asp-controller="Car">
+
+    <div>
+        <p>
+            <b>Lütfen Model Adını giriniz :</b>
+            <input type="text" name="p" value="@ViewData["CurrentFilter"]" class="form-control" style="border:1px solid #222" placeholder="Model Adına göre araç bul" />
+        </p>
+        <br />
+        <input type="submit" class="btn btn-dark" value="Aracı Bul" />
+
+    </div>
+</form>
+
 <table class="table table-bordered">
 
     <tr>

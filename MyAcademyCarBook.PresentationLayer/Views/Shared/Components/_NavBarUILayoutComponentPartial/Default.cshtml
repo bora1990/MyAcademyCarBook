@@ -1,4 +1,9 @@
-﻿<div class="site-mobile-menu site-navbar-target">
+﻿
+
+
+
+
+<div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
             <span class="icon-close2 js-menu-toggle"></span>
@@ -41,18 +46,21 @@
 
 
                         @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sayın <span>   </span> <b>@User.Identity.Name</b>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Çıkış Yap</a></li>
-                                  
-                                
-                                </ul>
-                            </li>
+                        {                          
 
+                            <li>
+                            <div class="dropdown">
+                                     <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                   @User.Identity.Name
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="/login/logOut/" style="text-align:center!important;padding:2px;background-color:none;">Çıkış Yap</a></li>
+                               
+                                </ul>
+                            </div>
+                            </li>
                         }
                         else
                         {

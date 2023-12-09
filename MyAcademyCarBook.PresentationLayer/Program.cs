@@ -44,6 +44,9 @@ builder.Services.AddScoped<IAboutService,AboutManager>();
 builder.Services.AddScoped<IContactDal, EfContactDal>();
 builder.Services.AddScoped<IContactService, ContactManager>();
 
+builder.Services.AddScoped<IStatisticsDal,EfStatisticsDal>();
+builder.Services.AddScoped<IStatisticsService, StatisticsManager>();
+
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<CarBookContext>().AddErrorDescriber<CustomIdentityValidator>();
 
