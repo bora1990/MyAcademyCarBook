@@ -1,0 +1,69 @@
+﻿@{
+    var cars3 = ViewBag.carlist as List<Car>;
+    var priceCar3 = ViewBag.price as List<Price>;
+
+}
+
+<div class="container">
+    <h1 class="text-center mb-3 mt-5">Son Eklenen Araçlarımız</h1>
+    <div class="row">
+
+        
+           
+            <br />
+            @foreach (var item in cars3)
+            {
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="item-1">
+                        <a href="#"><img src="@item.ImageUrl" alt="Image" width="347px" height="217px"></a>
+                        <div class="item-1-contents">
+                            <div class="text-center">
+                                <h3><a href="#">@item.Brand.BrandName @item.Model</a></h3>
+                                <div class="rating">
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                    <span class="icon-star text-warning"></span>
+                                </div>
+
+                                @if (priceCar3.Find(p => p.CarID == item.CarID) == null)
+                                {
+                                    <div class="rent-price"><span style="color:red;font-size:10px">--fiyat bulunamadı--</span></div>
+                                }
+                                else
+                                {
+                                    <div class="rent-price"><span> @priceCar3.Find(p => p.CarID == item.CarID).PriceValue/</span> @priceCar3.Where(p => p.CarID == item.CarID).FirstOrDefault()?.PriceType</div>
+                                }
+
+
+
+                            </div>
+                            <ul class="specs">
+                                <li>
+                                    <span>Model Yılı</span>
+                                    <span class="spec">@item.Year</span>
+                                </li>
+                                <li>
+                                    <span>Koltuk Sayısı</span>
+                                    <span class="spec">@item.PersonCount</span>
+                                </li>
+                                <li>
+                                    <span>Vites Türü</span>
+                                    <span class="spec">@item.GearType</span>
+                                </li>
+                                <li>
+                                    <span>Km</span>
+                                    <span class="spec">@item.Km</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+
