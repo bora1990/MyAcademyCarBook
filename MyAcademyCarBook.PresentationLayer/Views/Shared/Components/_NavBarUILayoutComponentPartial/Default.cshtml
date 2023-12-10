@@ -46,18 +46,23 @@
 
 
                         @if (User.Identity.IsAuthenticated)
-                        {                          
-
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                           
+                                <li><a href="/carstatus/index/" class="nav-link" style="color:red !important;">Yönetim</a></li>
+                            }
+                         
                             <li>
                             <div class="dropdown">
-                                     <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                     <button class="btn btn-outline-light dropdown-toggle"  data-toggle="dropdown">
                                    @User.Identity.Name
                                     <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" >
 
-                                    <li><a href="/login/logOut/" style="text-align:center!important;padding:2px;background-color:none;">Çıkış Yap</a></li>
-                               
+                                        <li><a class="btn btn-ouline-primary" href="/login/logOut/">Çıkış Yap</a></li>
+
                                 </ul>
                             </div>
                             </li>

@@ -25,7 +25,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "CarStatus");
+                return RedirectToAction("Index", "Home");
             }
             else 
             {

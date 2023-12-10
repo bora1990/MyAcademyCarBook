@@ -1,0 +1,41 @@
+﻿
+
+@model Comment
+@{
+    ViewData["Title"] = "CreateAComment";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>CreateAComment</h1>
+
+<form method="post">
+
+
+    <label class="mb-3">Araba Yorum Güncelleme Sayfası</label>
+
+    <input type="hidden" asp-for="CommentID" />
+    <br />
+    <label>İsim Soyisim</label>
+    <input type="text" asp-for="NameSurname" class="form-control" style="border:1px solid #2222" />
+
+    <label>Yorum</label>
+
+    <input type="text" asp-for="Description" class="form-control" style="border:1px solid #2222" />
+
+    <label>Tarih</label>
+    <input type="datetime" asp-for="CreatedDate" class="form-control" style="border:1px solid #2222" />
+
+
+    <label>Resim Url</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" style="border:1px solid #2222" />
+
+    <label>Araç Seçiniz</label>
+    @Html.DropDownListFor(x => x.CarID, (List<SelectListItem>)ViewBag.car, new { @class = "form-control", style = " border: 2px solid grey; " })
+
+
+
+
+    <br />
+    <button class="btn btn-success">Yorum Güncelle</button>
+
+</form>

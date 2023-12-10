@@ -14,8 +14,11 @@
     <br />
     
     <label>Ödeme Planı Giriniz</label>
-    <input type="text" asp-for="PriceType" class="form-control" style="border:1px solid #222" />
-    <br />
+    <select class="form-select" style="width:150px;" asp-for="PriceType" >
+        <option value="Haftalık">Haftalık</option>
+        <option value="Günlük">Günlük</option>
+        <option value="Aylık">Aylık</option>
+    </select>
     <br />
     <label>Fiyat Giriniz</label>
     <input type="text" asp-for="PriceValue" class="form-control" style="border:1px solid #222" />

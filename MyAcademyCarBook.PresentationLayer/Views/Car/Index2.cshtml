@@ -5,7 +5,7 @@
     var i = 0;
 }
 
-<h1>Araba Listesi</h1>
+<h1 class="mt-3 mb-3">Araba Listesi</h1>
 
 
 <form asp-action="Index2" method="get" asp-controller="Car">
@@ -16,7 +16,7 @@
             <input type="text" name="p" value="@ViewData["CurrentFilter"]" class="form-control" style="border:1px solid #222" placeholder="Model Adına göre araç bul" />
         </p>
         <br />
-        <input type="submit" class="btn btn-dark" value="Aracı Bul" />
+        <input type="submit" class="btn btn-dark mb-3" value="Aracı Bul" />
 
     </div>
 </form>
@@ -52,10 +52,10 @@
             <td>@item.Year</td>
             <td>@item.CarStatus.CarStatusName</td>
             <td><a href="/Car/DeleteCar/@item.CarID/" class="btn btn-outline-danger">Sil</a></td>
-            <td><a href="/Car/UpdateCar/@item.CarID/" class="btn btn-outline-warning">Guncelle</a></td>
+            <td><a href="/Car/UpdateCar/@item.CarID/" class="btn btn-outline-primary">Guncelle</a></td>
             <td><a href="/Car/CarDetail/@item.CarID/" class="btn btn-outline-dark">Detaylar</a>
           
-            <td><a href="/Car/CarDetail/@item.CarID/" class="btn btn-outline-primary">Sitede Gör</a></td>
+            <td><a href="/Car/CarDetail/@item.CarID/" class="btn btn-outline-success">Sitede Gör</a></td>
 
 
         </tr>

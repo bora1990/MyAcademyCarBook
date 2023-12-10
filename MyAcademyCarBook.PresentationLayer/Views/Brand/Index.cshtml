@@ -4,7 +4,7 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-
+<h1 class="mt-4 me-3">Marka Listesi</h1>
     <br /><br/>
     <table class="table table-bordered">
         <tr>
@@ -22,8 +22,8 @@
                 <td>@item.BrandID</td>
                 <td>@item.BrandName</td>
                 <td>@item.Status</td>
-                <td><a href="/Brand/DeleteBrand/@item.BrandID/">Sil</a></td>
-            <td><a href="/Brand/UpdateBrand/@item.BrandID/">Güncelle</a></td>
+                <td><a href="/Brand/DeleteBrand/@item.BrandID/" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Brand/UpdateBrand/@item.BrandID/" class=" btn btn-outline-primary">Güncelle</a></td>
           
             </tr>
         }
@@ -31,4 +31,4 @@
   
     </table>
 
-    <a href="/brand/addbrand/" class="btn btn-primary"> Yeni Marka Girişi</a>
+    <a href="/brand/addbrand/" class="btn btn-outline-primary"> Yeni Marka Girişi</a>

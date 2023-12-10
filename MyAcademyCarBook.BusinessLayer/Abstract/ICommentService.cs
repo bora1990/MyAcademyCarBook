@@ -10,5 +10,7 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
     public interface ICommentService:IGenericService<Comment>
     {
         List<Comment> TGetCommentsByCar(int id);
+
+        List<Comment> TGetCommentIncludeCar();
     }
 }
