@@ -34,9 +34,7 @@ Proje İçeriği
 
 Online Araba Kiralama Uygulaması
 Dinamik CRUD işlemleri
-Yönetim Paneli (Admin Paneli)
-Admin Paneli farklı Bir Area kullanılarak oluşturuldu
-Area Route Filterları eklenerek redirect işlemleri sorunsuz hale getirildi.
+Yönetim Paneli 
 Identity Kütüphanesi ile Login Register İşlemleri
 Proje uygulama seviyesinde koruma altına alındı ve Authentication işlemi yapılmadan Admin tarafına erişim yapılamıyor.
 Proje Özellikleri
